@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Luan Santana | Biografia e Músicas</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top left, #32115f, transparent 35%),
+                radial-gradient(circle at bottom right, #0e7490, transparent 30%),
+                #09090f;
+            color: #fff;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #a855f7;
+            filter: blur(180px);
+            opacity: .25;
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #06b6d4;
+            filter: blur(180px);
+            opacity: .2;
+            border-radius: 50%;
+            bottom: -150px;
+            right: -100px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content span {
+            color: #c084fc;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .header-content h1 {
+            font-size: clamp(50px, 10vw, 110px);
+            margin: 10px 0;
+            font-weight: 900;
+            letter-spacing: -4px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #d8b4fe,
+                #67e8f9,
+                #ffffff
+            );
+
+            background-size: 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            animation: gradient 5s infinite alternate;
+        }
+
+        .header-content p {
+            color: #cbd5e1;
+            font-size: 18px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #9333ea, #06b6d4);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+            box-shadow: 0 10px 30px rgba(147, 51, 234, .3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, .4);
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        /* =========================
+           CONTAINER
+        ========================== */
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        .section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60%;
+            height: 4px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #a855f7, #06b6d4);
+        }
+
+        .text-content {
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .1);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.2);
+        }
+
+        .text-content p {
+            margin-bottom: 15px;
+            color: #dbeafe;
+            font-size: 17px;
+        }
+
+        /* =========================
+           IMAGENS
+        ========================== */
+        .image-container {
+            margin: 30px 0;
+            overflow: hidden;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,.15);
+            box-shadow: 0 20px 50px rgba(0,0,0,.4);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform .6s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           PLAYLIST
+        ========================== */
+        .playlist-container {
+            background: rgba(15, 23, 42, .7);
+            border: 1px solid rgba(255,255,255,.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 30px 70px rgba(0,0,0,.35);
+        }
+
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .playlist-cover {
+            width: 90px;
+            height: 90px;
+            border-radius: 18px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,.4);
+        }
+
+        .playlist-header h2 {
+            font-size: 28px;
+        }
+
+        .playlist-header p {
+            color: #94a3b8;
+        }
+
+        /* Música */
+        .song {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 16px;
+            border-radius: 18px;
+            margin-bottom: 8px;
+            transition: .3s ease;
+            border: 1px solid transparent;
+        }
+
+        .song:hover {
+            background: rgba(168, 85, 247, .12);
+            border-color: rgba(168, 85, 247, .25);
+            transform: translateX(6px);
+        }
+
+        .number {
+            width: 35px;
+            text-align: center;
+            color: #64748b;
+            font-weight: bold;
+        }
+
+        .song-info {
+            flex: 1;
+        }
+
+        .song-info h3 {
+            font-size: 17px;
+            margin-bottom: 2px;
+        }
+
+        .song-info span {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Botão YouTube */
+        .youtube {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+            text-decoration: none;
+
+            color: white;
+            background: #ff0033;
+
+            font-size: 19px;
+
+            transition: .3s;
+            box-shadow: 0 5px 20px rgba(255,0,51,.25);
+        }
+
+        .youtube:hover {
+            transform: scale(1.15);
+            background: #ff1744;
+            box-shadow: 0 8px 30px rgba(255,0,51,.45);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+
+        footer strong {
+            color: #c084fc;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================== */
+        @media (max-width: 700px) {
+
+            header {
+                min-height: 80vh;
+            }
+
+            .header-content h1 {
+                font-size: 55px;
+                letter-spacing: -2px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .text-content {
+                padding: 22px;
+            }
+
+            .image-container img {
+                height: 300px;
+            }
+
+            .playlist-container {
+                padding: 12px;
+            }
+
+            .playlist-header {
+                padding: 12px;
+            }
+
+            .playlist-cover {
+                width: 70px;
+                height: 70px;
+            }
+
+            .playlist-header h2 {
+                font-size: 21px;
+            }
+
+            .song {
+                gap: 10px;
+                padding: 13px 8px;
+            }
+
+            .number {
+                width: 25px;
+            }
+
+            .song-info h3 {
+                font-size: 15px;
+            }
+
+            .youtube {
+                width: 42px;
+                height: 42px;
+                min-width: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         CAPA
+    ========================== -->
+
+    <header>
+
+        <div class="header-content">
+
+            <span>História • Música • Sucesso</span>
+
+            <h1>LUAN SANTANA</h1>
+
+            <p>
+                Um dos maiores nomes do sertanejo brasileiro,
+                conhecido por seus grandes sucessos e milhões de fãs.
+            </p>
+
+            <a href="#biografia" class="btn">
+                Conheça a história ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             QUEM É LUAN
+        ========================== -->
+
+        <section class="section" id="biografia">
+
+            <h2 class="section-title">
+                Quem é Luan Santana?
+            </h2>
+
+            <div class="text-content">
+
+                <p>
+                    Luan Santana é um cantor e compositor brasileiro,
+                    nascido em Campo Grande (MS), em 1991.
+                </p>
+
+                <p>
+                    Ele ficou famoso ainda jovem e se destacou no
+                    sertanejo universitário.
+                </p>
+
+                <p>
+                    Ao longo da carreira, lançou vários álbuns e
+                    conquistou milhões de fãs.
+                </p>
+
+                <p>
+                    Suas músicas misturam sertanejo, pop e romantismo.
+                </p>
+
+                <p>
+                    É considerado um dos grandes nomes da música
+                    sertaneja brasileira.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             IMAGEM
+        ========================== -->
+
+        <div class="image-container">
+
+            <img
+                src="https://cdn.forronordeste.com.br/public/e51a01c6-4937-4026-b095-3d03ae2d7dc0.jpg"
+                alt="Luan Santana">
+
+        </div>
+
+
+        <!-- =========================
+             INÍCIO DA CARREIRA
+        ========================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Início de sua carreira
+            </h2>
+
+            <div class="text-content">
+
+                <p>
+                    Luan Santana começou sua carreira musical ainda
+                    adolescente, cantando em festas e eventos.
+                </p>
+
+                <p>
+                    Em 2008, ganhou destaque após vídeos de suas
+                    apresentações começarem a circular na internet.
+                </p>
+
+                <p>
+                    Pouco depois, passou a realizar shows em várias
+                    cidades do Brasil.
+                </p>
+
+                <p>
+                    Seu talento chamou a atenção de empresários
+                    e gravadoras.
+                </p>
+
+                <p>
+                    A partir daí, sua carreira cresceu rapidamente
+                    e ele se tornou conhecido nacionalmente.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SEGUNDA IMAGEM
+        ========================== -->
+
+        <div class="image-container">
+
+            <img
+                src="https://staticx.noticiasilimitadas.pt/jn/image.webp?brand=jn&type=generate&guid=48d053a7-80d6-4a2d-b3bd-c2ccc55b81c0&w=3840"
+                alt="Luan Santana no início da carreira">
+
+        </div>
+
+
+        <!-- =========================
+             PRIMEIRO SUCESSO
+        ========================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Seu primeiro grande sucesso
+            </h2>
+
+            <div class="text-content">
+
+                <p>
+                    "Meteoro" foi um dos primeiros grandes sucessos
+                    de Luan Santana.
+                </p>
+
+                <p>
+                    Luan Santana ficou conhecido nacionalmente pelo
+                    sucesso de 2009, "Meteoro", também conhecido como
+                    "Meteoro da Paixão".
+                </p>
+
+                <p>
+                    A música fez muito sucesso no Brasil e marcou
+                    o início de sua grande carreira.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ATUALMENTE
+        ========================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Luan Santana atualmente
+            </h2>
+
+            <div class="text-content">
+
+                <p>
+                    Ele é um dos principais nomes do sertanejo brasileiro.
+                </p>
+
+                <p>
+                    O cantor continua lançando novas músicas e realizando
+                    shows em várias cidades do Brasil.
+                </p>
+
+                <p>
+                    Em 2026, ele comemora 18 anos de carreira.
+                </p>
+
+                <p>
+                    Ele está realizando a turnê "Registro Histórico".
+                </p>
+
+                <p>
+                    Luan continua conquistando muitos fãs e sua carreira
+                    permanece forte e de grande destaque.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TERCEIRA IMAGEM
+        ========================== -->
+
+        <div class="image-container">
+
+            <img
+                src="https://portalsertanejo.net/wp-content/uploads/2025/02/luan-santana-1.jpg"
+                alt="Luan Santana">
+
+        </div>
+
+
+        <!-- =========================
+             PLAYLIST
+        ========================== -->
+
+        <section class="section" id="musicas">
+
+            <h2 class="section-title">
+                🎵 Músicas
+            </h2>
+
+            <div class="playlist-container">
+
+                <div class="playlist-header">
+
+                    <img
+                        class="playlist-cover"
+                        src="https://portalsertanejo.net/wp-content/uploads/2025/02/luan-santana-1.jpg"
+                        alt="Luan Santana">
+
+                    <div>
+                        <h2>Playlist Luan Santana</h2>
+
+                        <p>
+                            Clique no ▶ para ouvir no YouTube
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- 01 -->
+                <div class="song">
+
+                    <span class="number">01</span>
+
+                    <div class="song-info">
+                        <h3>Meteoro</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://youtu.be/MKY9bmNrSP0?si=pcJtqYTVy1fyrLvn"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 02 -->
+                <div class="song">
+
+                    <span class="number">02</span>
+
+                    <div class="song-info">
+                        <h3>Te Esperando</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://youtu.be/Z5pWz_OR5Sg?si=8uBXvA-5unLQr100"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 03 -->
+                <div class="song">
+
+                    <span class="number">03</span>
+
+                    <div class="song-info">
+                        <h3>Tudo Que Você Quiser</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=-YzDsDMYqdw"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 04 -->
+                <div class="song">
+
+                    <span class="number">04</span>
+
+                    <div class="song-info">
+                        <h3>Te Vivo</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=dWpGsK8Md28"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 05 -->
+                <div class="song">
+
+                    <span class="number">05</span>
+
+                    <div class="song-info">
+                        <h3>Você Não Sabe o Que É Amor</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=CG1s-5ZsZQk"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 06 -->
+                <div class="song">
+
+                    <span class="number">06</span>
+
+                    <div class="song-info">
+                        <h3>Acordando o Prédio</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=mvWXaz0Gtbo"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 07 -->
+                <div class="song">
+
+                    <span class="number">07</span>
+
+                    <div class="song-info">
+                        <h3>Morena</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=ZIiQ1jMqhVM"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 08 -->
+                <div class="song">
+
+                    <span class="number">08</span>
+
+                    <div class="song-info">
+                        <h3>Escreve Aí</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=ysZP--fcgnc"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 09 -->
+                <div class="song">
+
+                    <span class="number">09</span>
+
+                    <div class="song-info">
+                        <h3>Sogrão Caprichou</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=-EBdqy6IzHY"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 10 -->
+                <div class="song">
+
+                    <span class="number">10</span>
+
+                    <div class="song-info">
+                        <h3>Amar Não É Pecado</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=kbhxWHoTXKc"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 11 -->
+                <div class="song">
+
+                    <span class="number">11</span>
+
+                    <div class="song-info">
+                        <h3>Cê Topa?</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=0YQwnONzr90"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 12 -->
+                <div class="song">
+
+                    <span class="number">12</span>
+
+                    <div class="song-info">
+                        <h3>Chuva de Arroz</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=rTsbSY04s1Y"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 13 -->
+                <div class="song">
+
+                    <span class="number">13</span>
+
+                    <div class="song-info">
+                        <h3>Sofazinho</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=zFjqdEplaHc"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 14 -->
+                <div class="song">
+
+                    <span class="number">14</span>
+
+                    <div class="song-info">
+                        <h3>DONA</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=Wf4nrDfWVk8"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+
+                <!-- 15 -->
+                <div class="song">
+
+                    <span class="number">15</span>
+
+                    <div class="song-info">
+                        <h3>Meio Termo</h3>
+                        <span>Luan Santana</span>
+                    </div>
+
+                    <a
+                        class="youtube"
+                        href="https://www.youtube.com/watch?v=6Pix8tMSN6g"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ▶
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer>
+
+        <p>
+            
+        </p>
+        </p>
+
+    </footer>
+
+</body>
+</html>
